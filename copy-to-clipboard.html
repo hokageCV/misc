@@ -1,0 +1,40 @@
+<!--  source: https://www.harrytheo.com/blog/2021/10/copy-text-and-images-to-clipboard/ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy to clipboard</title>
+  <style>
+    img {
+      width: 800px;
+      height: 500px;
+    }
+  </style>
+  <script>
+    async function getImageBlobFromUrl(url) {
+      const fetchedImageData = await fetch(url)
+      const blob = await fetchedImageData.blob()
+      return blob
+    }
+
+    async function copyImageToClipboard() {
+      const img = document.querySelector('img')
+
+      const src = img.src
+      const blob = await getImageBlobFromUrl(src)
+
+      await navigator.clipboard.write([
+        new ClipboardItem({ 'image/png': blob })
+      ])
+    }
+  </script>
+</head>
+
+<body>
+  <img src="https://raw.githubusercontent.com/hokageCV/Lakshya/master/assets/lakshya.png" alt="png image">
+  <button onclick='copyImageToClipboard()'>Copy</button>
+</body>
+
+</html>
