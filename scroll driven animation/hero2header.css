@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-image: url(https://images.unsplash.com/photo-1529606844694-d6b7cc624203?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    overflow: hidden;
+
+    animation: header-scroll linear forwards;
+    animation-timeline: scroll();
+    animation-range: 0vh 90vh;
+
+    & h1 {
+        color: aliceblue;
+        background-color: hsl(200 50% 70%/0.5);
+        width: 100vw;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+@keyframes header-scroll {
+    to {
+        height: 50px;
+    }
+}
+
+section {
+    margin: 100vh auto 2rem;
+    padding: 2rem;
+}

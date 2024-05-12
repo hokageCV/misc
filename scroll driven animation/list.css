@@ -1,0 +1,35 @@
+body {
+    background: #264463;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 400px;
+}
+
+li {
+    border: 1px solid black;
+    padding: 1rem;
+    background: #101d2a;
+    color: #a1c5e2;
+
+    animation: fadeIn linear backwards, fadeOut linear forwards;
+    animation-timeline: view();
+    animation-range: entry, exit;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        translate: 0% 50%;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        translate: 0% -50%;
+    }
+}
